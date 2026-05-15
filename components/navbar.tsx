@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react'
 import { Shield, Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Problem', href: '#problem' },
-  { label: 'Solution', href: '#solution' },
-  { label: 'Features', href: '#features' },
-  { label: 'Technology', href: '#technology' },
+  { label: 'Problema', href: '#problem' },
+  { label: 'Solución', href: '#solution' },
+  { label: 'Características', href: '#features' },
+  { label: 'Tecnología', href: '#technology' },
 ]
 
 export function Navbar() {
@@ -30,10 +30,10 @@ export function Navbar() {
     >
       <nav
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
-        aria-label="Main navigation"
+        aria-label="Navegación principal"
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group" aria-label="Sentinel AI home">
+        <a href="#" className="flex items-center gap-2.5 group" aria-label="Inicio de Sentinel AI">
           <div className="relative flex items-center justify-center w-8 h-8">
             <div className="absolute inset-0 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors" />
             <Shield className="w-5 h-5 text-primary relative z-10" />
@@ -43,7 +43,7 @@ export function Navbar() {
           </span>
         </a>
 
-        {/* Desktop links */}
+        {/* Enlaces de escritorio */}
         <ul className="hidden md:flex items-center gap-6" role="list">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -58,34 +58,34 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
+        {/* Botón principal */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#cta"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            [PERSON_NAME] phishing con IA en tu móvil
+            Detecta phishing con IA en tu móvil
           </a>
           <a
             href="#cta"
             className="px-4 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 neon-glow-btn"
           >
-            Try Demo
+            Probar Demo
           </a>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Botón menú móvil */}
         <button
           className="md:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Menú móvil */}
       {mobileOpen && (
         <div className="md:hidden glass border-t border-border/50 px-4 py-4 space-y-2">
           {navLinks.map((link) => (
@@ -104,7 +104,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block w-full text-center px-4 py-2.5 rounded-lg text-sm font-medium bg-primary text-primary-foreground"
             >
-              Try Demo
+              Probar Demo
             </a>
           </div>
         </div>
