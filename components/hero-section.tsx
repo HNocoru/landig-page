@@ -219,7 +219,7 @@ export function HeroSection() {
             {/* Badge */}
             <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
-              AI-Powered Cybersecurity Platform
+              Plataforma de Ciberseguridad con IA
             </div>
 
             {/* Headline */}
@@ -243,14 +243,14 @@ export function HeroSection() {
                 href="#cta"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-primary text-primary-foreground neon-glow-btn transition-all duration-300 hover:scale-105"
               >
-                Try Demo
+                Probar Demo
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#solution"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold glass border border-border/60 text-foreground hover:border-primary/50 transition-all duration-300 hover:scale-105"
               >
-                Learn More
+                Saber Más
                 <ChevronRight className="w-4 h-4" />
               </a>
             </div>
@@ -258,7 +258,7 @@ export function HeroSection() {
             {/* Micro-stats */}
             <div className="reveal flex flex-wrap gap-6 pt-2">
               {[
-                { value: '97%', label: 'Detection Accuracy' },
+                { value: '97%', label: 'Precisión de Detección' },
                 { value: '<200ms', label: 'Analysis Time' },
                 { value: '10M+', label: 'Emails Analyzed' },
               ].map((stat) => (
