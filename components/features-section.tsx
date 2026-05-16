@@ -2,16 +2,23 @@
 
 import { useEffect, useRef } from 'react'
 import {
-  Type, GitBranch, Lightbulb, Compass, Globe, BarChart2,
-  Smartphone, BookOpen, Zap
+  Type,
+  GitBranch,
+  Lightbulb,
+  Compass,
+  Globe,
+  BarChart2,
+  Smartphone,
+  BookOpen,
+  Zap
 } from 'lucide-react'
 
 const features = [
   {
     icon: Type,
-    title: 'NLP Semantic Analysis',
-    desc: 'Transformer-based models decode manipulation tactics, urgency injection, and social engineering patterns embedded in email text.',
-    tag: 'Core',
+    title: 'Análisis Semántico NLP',
+    desc: 'Modelos basados en transformers detectan tácticas de manipulación, urgencia artificial y patrones de ingeniería social ocultos en el texto del correo.',
+    tag: 'Principal',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
@@ -19,9 +26,9 @@ const features = [
   },
   {
     icon: GitBranch,
-    title: 'Machine Learning Classification',
-    desc: 'Ensemble ML models trained on millions of phishing samples classify emails across dozens of attack vectors with high precision.',
-    tag: 'Core',
+    title: 'Clasificación con Machine Learning',
+    desc: 'Modelos ML entrenados con millones de muestras de phishing clasifican correos en múltiples vectores de ataque con alta precisión.',
+    tag: 'Principal',
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
@@ -29,9 +36,9 @@ const features = [
   },
   {
     icon: Lightbulb,
-    title: 'Explainable AI Alerts',
-    desc: 'Every threat detection includes a clear, human-readable explanation — not just a risk label, but the exact reasoning behind it.',
-    tag: 'Unique',
+    title: 'Alertas IA Explicables',
+    desc: 'Cada detección incluye una explicación clara y entendible, no solo una etiqueta de riesgo, sino el razonamiento detrás de ella.',
+    tag: 'Único',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
@@ -39,8 +46,8 @@ const features = [
   },
   {
     icon: Compass,
-    title: 'Context-Aware Recommendations',
-    desc: 'Actionable guidance tailored to the specific threat type, helping users respond appropriately without needing security expertise.',
+    title: 'Recomendaciones Contextuales',
+    desc: 'Guías accionables adaptadas al tipo de amenaza específica para ayudar al usuario a responder correctamente.',
     tag: 'UX',
     color: 'text-green-400',
     bg: 'bg-green-500/10',
@@ -49,9 +56,9 @@ const features = [
   },
   {
     icon: Globe,
-    title: 'Sender & Domain Validation',
-    desc: 'Automated DKIM, SPF, and DMARC checks plus homoglyph and lookalike domain detection to expose spoofed identities.',
-    tag: 'Security',
+    title: 'Validación de Remitente y Dominio',
+    desc: 'Verificación automática de DKIM, SPF y DMARC, además de detección de dominios homoglíficos y falsificados.',
+    tag: 'Seguridad',
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
@@ -59,9 +66,9 @@ const features = [
   },
   {
     icon: BarChart2,
-    title: 'Risk Confidence Percentage',
-    desc: 'Beyond a binary safe/unsafe label, Sentinel provides a nuanced 0–100 risk score with confidence intervals for every analysis.',
-    tag: 'Analytics',
+    title: 'Porcentaje de Confianza de Riesgo',
+    desc: 'Más allá de un simple seguro/peligroso, Sentinel proporciona un puntaje de riesgo de 0–100 con intervalos de confianza.',
+    tag: 'Analítica',
     color: 'text-red-400',
     bg: 'bg-red-500/10',
     border: 'border-red-500/30',
@@ -69,9 +76,9 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: 'Mobile-First Assistant',
-    desc: 'Designed for on-the-go protection. Lightweight, fast, and fully optimized for iOS and Android with a native feel.',
-    tag: 'Platform',
+    title: 'Asistente Mobile-First',
+    desc: 'Diseñado para protección en movimiento. Ligero, rápido y totalmente optimizado para iOS y Android.',
+    tag: 'Plataforma',
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
     border: 'border-purple-500/30',
@@ -79,9 +86,9 @@ const features = [
   },
   {
     icon: BookOpen,
-    title: 'Educational Explanations',
-    desc: 'Users learn why an email is dangerous, building long-term phishing awareness rather than passive dependence on the tool.',
-    tag: 'Education',
+    title: 'Explicaciones Educativas',
+    desc: 'Los usuarios aprenden por qué un correo es peligroso, desarrollando conciencia sobre phishing a largo plazo.',
+    tag: 'Educación',
     color: 'text-cyan-400',
     bg: 'bg-cyan-500/10',
     border: 'border-cyan-500/30',
@@ -101,8 +108,11 @@ export function FeaturesSection() {
       },
       { threshold: 0.08 }
     )
+
     const elements = sectionRef.current?.querySelectorAll('.reveal')
+
     elements?.forEach((el) => observer.observe(el))
+
     return () => observer.disconnect()
   }, [])
 
@@ -114,30 +124,35 @@ export function FeaturesSection() {
       aria-labelledby="features-heading"
     >
       <div className="absolute inset-0 grid-bg opacity-30" />
+
       <div className="absolute top-0 right-0 w-72 h-72 orb bg-accent/6" />
+
       <div className="absolute bottom-0 left-0 w-72 h-72 orb bg-primary/6" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
             <Zap className="w-3 h-3" />
-            Feature Set
+            Conjunto de Funciones
           </div>
+
           <h2
             id="features-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Everything You Need to{' '}
-            <span className="neon-text">Stay Protected</span>
+            Todo lo que Necesitas para{' '}
+            <span className="neon-text">Mantenerte Protegido</span>
           </h2>
+
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            A complete AI-powered toolkit that detects, explains, and educates — built for
-            real humans navigating a dangerous digital world.
+            Un conjunto completo de herramientas impulsadas por IA que detectan,
+            explican y educan, creado para personas reales en un mundo digital peligroso.
           </p>
         </div>
 
-        {/* Bento-style feature grid */}
+        {/* Grid */}
         <div className="grid md:grid-cols-3 gap-4">
           {features.map((feat, i) => (
             <div
@@ -146,18 +161,32 @@ export function FeaturesSection() {
               style={{ transitionDelay: `${i * 0.07}s` }}
             >
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-11 h-11 rounded-xl ${feat.bg} border ${feat.border} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+
+                <div
+                  className={`w-11 h-11 rounded-xl ${feat.bg} border ${feat.border} flex items-center justify-center group-hover:scale-110 transition-transform`}
+                >
                   <feat.icon className={`w-5 h-5 ${feat.color}`} />
                 </div>
-                <span className={`text-xs px-2 py-0.5 rounded-full ${feat.bg} border ${feat.border} ${feat.color} font-mono`}>
+
+                <span
+                  className={`text-xs px-2 py-0.5 rounded-full ${feat.bg} border ${feat.border} ${feat.color} font-mono`}
+                >
                   {feat.tag}
                 </span>
               </div>
-              <h3 className="text-base font-semibold text-foreground mb-2">{feat.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
+
+              <h3 className="text-base font-semibold text-foreground mb-2">
+                {feat.title}
+              </h3>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {feat.desc}
+              </p>
 
               {/* Hover indicator */}
-              <div className={`mt-4 h-0.5 w-0 group-hover:w-full ${feat.bg.replace('bg-', 'bg-').replace('/10', '')} transition-all duration-500 rounded-full opacity-60`} />
+              <div
+                className={`mt-4 h-0.5 w-0 group-hover:w-full ${feat.bg.replace('bg-', 'bg-').replace('/10', '')} transition-all duration-500 rounded-full opacity-60`}
+              />
             </div>
           ))}
         </div>

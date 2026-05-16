@@ -6,50 +6,50 @@ import { GraduationCap, Briefcase, UserCog, User, Laptop, Users } from 'lucide-r
 const users = [
   {
     icon: GraduationCap,
-    title: 'Students',
-    subtitle: 'Academic & personal accounts',
-    desc: 'Students regularly receive phishing emails targeting university credentials, financial aid, and subscription accounts. Sentinel helps them stay safe.',
-    risks: ['Credential theft', 'Scholarship scams', 'Account takeover'],
+    title: 'Estudiantes',
+    subtitle: 'Cuentas académicas y personales',
+    desc: 'Los estudiantes reciben frecuentemente correos de phishing dirigidos a credenciales universitarias, ayudas financieras y cuentas de suscripción. Sentinel les ayuda a mantenerse seguros.',
+    risks: ['Robo de credenciales', 'Estafas de becas', 'Secuestro de cuentas'],
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
   {
     icon: Briefcase,
-    title: 'Small Businesses',
-    subtitle: 'SMBs & entrepreneurs',
-    desc: 'Small businesses are prime targets for business email compromise (BEC) and invoice fraud. Sentinel provides enterprise-grade AI protection without the enterprise price.',
-    risks: ['Invoice fraud', 'BEC attacks', 'Wire transfer scams'],
+    title: 'Pequeñas Empresas',
+    subtitle: 'PYMES y emprendedores',
+    desc: 'Las pequeñas empresas son objetivos principales de fraudes de correo corporativo (BEC) y fraude de facturas. Sentinel ofrece protección con IA de nivel empresarial sin el costo empresarial.',
+    risks: ['Fraude de facturas', 'Ataques BEC', 'Estafas de transferencias bancarias'],
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
   },
   {
     icon: UserCog,
-    title: 'Administrative Staff',
-    subtitle: 'Office & admin roles',
-    desc: 'Administrative personnel handle sensitive data and financial transactions, making them high-value targets. Sentinel acts as an always-on AI security advisor.',
-    risks: ['Data exfiltration', 'Impersonation', 'Finance fraud'],
+    title: 'Personal Administrativo',
+    subtitle: 'Roles administrativos y de oficina',
+    desc: 'El personal administrativo maneja datos sensibles y transacciones financieras, convirtiéndose en objetivos de alto valor. Sentinel actúa como un asesor de seguridad con IA siempre activo.',
+    risks: ['Exfiltración de datos', 'Suplantación de identidad', 'Fraude financiero'],
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
     icon: User,
-    title: 'General Users',
-    subtitle: 'Everyday email users',
-    desc: 'No technical knowledge required. Sentinel&apos;s plain-language explanations make cybersecurity accessible to everyone, not just IT professionals.',
-    risks: ['Password theft', 'Account phishing', 'Identity theft'],
+    title: 'Usuarios Generales',
+    subtitle: 'Usuarios cotidianos de correo electrónico',
+    desc: 'No se requieren conocimientos técnicos. Las explicaciones en lenguaje sencillo de Sentinel hacen que la ciberseguridad sea accesible para todos, no solo para profesionales de TI.',
+    risks: ['Robo de contraseñas', 'Phishing de cuentas', 'Robo de identidad'],
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
   },
   {
     icon: Laptop,
-    title: 'Remote Workers',
-    subtitle: 'Distributed teams',
-    desc: 'Remote employees operate outside corporate firewalls and are frequently targeted via personal devices. Sentinel bridges the security gap.',
-    risks: ['VPN phishing', 'Device compromise', 'Corporate data theft'],
+    title: 'Trabajadores Remotos',
+    subtitle: 'Equipos distribuidos',
+    desc: 'Los empleados remotos operan fuera de los firewalls corporativos y frecuentemente son atacados a través de dispositivos personales. Sentinel cierra esa brecha de seguridad.',
+    risks: ['Phishing de VPN', 'Compromiso de dispositivos', 'Robo de datos corporativos'],
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
@@ -68,8 +68,10 @@ export function TargetUsersSection() {
       },
       { threshold: 0.08 }
     )
+
     const elements = sectionRef.current?.querySelectorAll('.reveal')
     elements?.forEach((el) => observer.observe(el))
+
     return () => observer.disconnect()
   }, [])
 
@@ -84,27 +86,29 @@ export function TargetUsersSection() {
       <div className="absolute top-0 left-0 w-80 h-80 orb bg-primary/6" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
             <Users className="w-3 h-3" />
-            Who We Protect
+            A Quién Protegemos
           </div>
+
           <h2
             id="users-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Built for{' '}
-            <span className="neon-text">Every Human</span>{' '}
-            in the Digital World
+            Diseñado para{' '}
+            <span className="neon-text">Cada Persona</span>{' '}
+            en el Mundo Digital
           </h2>
+
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Phishing attacks don&apos;t discriminate by job title. Sentinel AI protects anyone
-            who uses email — from students to executives.
+            Los ataques de phishing no discriminan por puesto de trabajo. Sentinel AI protege a cualquier
+            persona que use correo electrónico, desde estudiantes hasta ejecutivos.
           </p>
         </div>
 
-        {/* User cards */}
+        {/* Tarjetas de usuarios */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {users.map((user, i) => (
             <div
@@ -116,14 +120,28 @@ export function TargetUsersSection() {
                 <user.icon className={`w-6 h-6 ${user.color}`} />
               </div>
 
-              <h3 className="text-base font-semibold text-foreground mb-0.5">{user.title}</h3>
-              <p className={`text-xs font-mono mb-3 ${user.color}`}>{user.subtitle}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{user.desc}</p>
+              <h3 className="text-base font-semibold text-foreground mb-0.5">
+                {user.title}
+              </h3>
+
+              <p className={`text-xs font-mono mb-3 ${user.color}`}>
+                {user.subtitle}
+              </p>
+
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {user.desc}
+              </p>
 
               <div className="space-y-1.5">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider font-mono">Common Threats</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider font-mono">
+                  Amenazas Comunes
+                </p>
+
                 {user.risks.map((risk) => (
-                  <div key={risk} className={`flex items-center gap-2 text-xs ${user.color}`}>
+                  <div
+                    key={risk}
+                    className={`flex items-center gap-2 text-xs ${user.color}`}
+                  >
                     <div className="w-1 h-1 rounded-full bg-current flex-shrink-0" />
                     {risk}
                   </div>

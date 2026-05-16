@@ -6,32 +6,32 @@ import { Telescope, LayoutDashboard, Users, RefreshCw, AlertOctagon, ArrowRight,
 const futureItems = [
   {
     icon: LayoutDashboard,
-    title: 'Enterprise Dashboard',
-    desc: 'A centralized web dashboard for organizations to monitor team-wide phishing exposure, review incidents, and track threat trends over time.',
+    title: 'Panel Empresarial',
+    desc: 'Un panel web centralizado para que las organizaciones supervisen la exposición al phishing de sus equipos, revisen incidentes y rastreen tendencias de amenazas a lo largo del tiempo.',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
   {
     icon: Users,
-    title: 'Team Monitoring',
-    desc: 'Security managers gain visibility into which team members are targeted most frequently, enabling proactive protection and training.',
+    title: 'Monitoreo de Equipos',
+    desc: 'Los responsables de seguridad obtienen visibilidad sobre qué miembros del equipo son atacados con mayor frecuencia, permitiendo protección y capacitación proactiva.',
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
   },
   {
     icon: RefreshCw,
-    title: 'Adaptive Learning',
-    desc: 'Federated on-device learning lets Sentinel improve from real-world interactions across users without ever compromising individual privacy.',
+    title: 'Aprendizaje Adaptativo',
+    desc: 'El aprendizaje federado en el dispositivo permite que Sentinel mejore a partir de interacciones reales entre usuarios sin comprometer la privacidad individual.',
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
   },
   {
     icon: AlertOctagon,
-    title: 'Advanced Anomaly Detection',
-    desc: 'Next-generation models trained to detect zero-day phishing vectors, behavioral anomalies, and targeted spear-phishing campaigns.',
+    title: 'Detección Avanzada de Anomalías',
+    desc: 'Modelos de nueva generación entrenados para detectar vectores de phishing de día cero, anomalías de comportamiento y campañas dirigidas de spear-phishing.',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
@@ -70,18 +70,18 @@ function FutureVisionSection() {
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-accent/30 text-xs text-accent font-mono">
             <Telescope className="w-3 h-3" />
-            Roadmap & Vision
+            Hoja de Ruta y Visión
           </div>
           <h2
             id="vision-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            The Future of{' '}
-            <span className="neon-text">AI-Driven Defense</span>
+            El Futuro de la{' '}
+            <span className="neon-text">Defensa Impulsada por IA</span>
           </h2>
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Sentinel AI is a living platform. As threats evolve, so do our defenses — here&apos;s
-            what&apos;s coming next.
+            Sentinel AI es una plataforma viva. A medida que evolucionan las amenazas,
+            también lo hacen nuestras defensas — esto es lo que viene después.
           </p>
         </div>
 
@@ -147,13 +147,13 @@ function CTASection() {
           id="cta-heading"
           className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-6"
         >
-          Strengthen Human Decision-Making{' '}
-          <span className="neon-text">Against AI-Driven Threats</span>
+          Fortalece la Toma de Decisiones Humanas{' '}
+          <span className="neon-text">Contra Amenazas Impulsadas por IA</span>
         </h2>
 
         <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
-          The next generation of phishing attacks is already here — crafted by AI, personalized
-          at scale. Sentinel AI gives every user the intelligence to fight back.
+          La próxima generación de ataques de phishing ya está aquí — creada por IA,
+          personalizada a gran escala. Sentinel AI le brinda a cada usuario la inteligencia para defenderse.
         </p>
 
         <div className="reveal flex flex-wrap items-center justify-center gap-4">
@@ -161,7 +161,7 @@ function CTASection() {
             href="#"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold bg-primary text-primary-foreground neon-glow-btn transition-all duration-300 hover:scale-105"
           >
-            Get Started
+            Comenzar
             <ArrowRight className="w-4 h-4" />
           </a>
           <a
@@ -169,16 +169,16 @@ function CTASection() {
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold glass border border-border/60 text-foreground hover:border-primary/50 transition-all duration-300 hover:scale-105"
           >
             <ExternalLink className="w-4 h-4" />
-            View Project
+            Ver Proyecto
           </a>
         </div>
 
         {/* Trust indicators */}
         <div className="reveal mt-12 flex flex-wrap items-center justify-center gap-6">
           {[
-            { label: 'No credit card required' },
-            { label: 'Academic research project' },
-            { label: 'Privacy-first design' },
+            { label: 'No se requiere tarjeta de crédito' },
+            { label: 'Proyecto de investigación académica' },
+            { label: 'Diseño centrado en la privacidad' },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-1.5 text-sm text-muted-foreground">
               <div className="w-1 h-1 rounded-full bg-primary" />
@@ -207,18 +207,18 @@ function Footer() {
               <span className="font-semibold text-foreground">Sentinel<span className="text-primary"> AI</span></span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              An AI-powered mobile assistant for phishing detection and contextual email verification.
+              Un asistente móvil impulsado por IA para la detección de phishing y verificación contextual de correos electrónicos.
             </p>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-border/40 text-xs text-muted-foreground inline-flex w-fit">
-              Academic Research Project — 2025
+              Proyecto de Investigación Académica — 2025
             </div>
           </div>
 
           {/* Technologies */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-3">Technologies</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">Tecnologías</h3>
             <ul className="space-y-2" role="list">
-              {['NLP & Transformers', 'Machine Learning', 'Large Language Models', 'Semantic Embeddings', 'Explainable AI (XAI)', 'React Native / Next.js'].map((tech) => (
+              {['NLP y Transformers', 'Machine Learning', 'Modelos de Lenguaje Grandes', 'Embeddings Semánticos', 'IA Explicable (XAI)', 'React Native / Next.js'].map((tech) => (
                 <li key={tech} className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-default">{tech}</li>
               ))}
             </ul>
@@ -226,13 +226,13 @@ function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-3">Project</h3>
+            <h3 className="text-sm font-semibold text-foreground mb-3">Proyecto</h3>
             <ul className="space-y-2" role="list">
               {[
-                { label: 'Documentation', href: '#' },
-                { label: 'GitHub Repository', href: '#', icon: Github },
-                { label: 'Research Paper', href: '#' },
-                { label: 'Contact', href: '#' },
+                { label: 'Documentación', href: '#' },
+                { label: 'Repositorio GitHub', href: '#', icon: Github },
+                { label: 'Artículo de Investigación', href: '#' },
+                { label: 'Contacto', href: '#' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -252,13 +252,13 @@ function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-border/30 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            &copy; 2025 Sentinel AI. Academic research project. All rights reserved.
+            &copy; 2025 Sentinel AI. Proyecto de investigación académica. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <span className="font-mono">v1.0.0-alpha</span>
             <div className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              <span>System Operational</span>
+              <span>Sistema Operativo</span>
             </div>
           </div>
         </div>
