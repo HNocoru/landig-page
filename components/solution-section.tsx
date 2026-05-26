@@ -179,8 +179,8 @@ export function SolutionSection() {
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Sentinel AI no reemplaza tu cliente de correo. Funciona junto a él:
-            analizando, puntuando y explicando cada correo sospechoso antes de que interactúes.
+            Sentinel AI es un cliente de correo inteligente diseñado para detectar
+            phishing, fraude y amenazas antes de que interactúes con cualquier mensaje.
           </p>
         </div>
 
