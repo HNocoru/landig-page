@@ -1,58 +1,48 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { GraduationCap, Briefcase, UserCog, User, Laptop, Users } from 'lucide-react'
+import { Briefcase, UserCog, Laptop, User, Users } from 'lucide-react'
 
 const users = [
   {
-    icon: GraduationCap,
-    title: 'Estudiantes',
-    subtitle: 'Cuentas académicas y personales',
-    desc: 'Los estudiantes reciben frecuentemente correos de phishing dirigidos a credenciales universitarias, ayudas financieras y cuentas de suscripción. Sentinel les ayuda a mantenerse seguros.',
-    risks: ['Robo de credenciales', 'Estafas de becas', 'Secuestro de cuentas'],
+    icon: Briefcase,
+    title: 'Dueño de Despacho Contable',
+    subtitle: 'Responsable de la operación financiera',
+    desc: 'Necesita certeza antes de autorizar pagos y sabe que una factura falsa puede costarle la relación con su cliente.',
+    risks: ['Factura falsa', 'Cambio de CLABE', 'Responsabilidad ante clientes'],
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
   {
-    icon: Briefcase,
-    title: 'Pequeñas Empresas',
-    subtitle: 'PYMES y emprendedores',
-    desc: 'Las pequeñas empresas son objetivos principales de fraudes de correo corporativo (BEC) y fraude de facturas. Sentinel ofrece protección con IA de nivel empresarial sin el costo empresarial.',
-    risks: ['Fraude de facturas', 'Ataques BEC', 'Estafas de transferencias bancarias'],
+    icon: UserCog,
+    title: 'Asistente / Capturista',
+    subtitle: 'Quien procesa pagos y facturas',
+    desc: 'Trabaja con alta carga documental y busca evitar errores que provoquen pagos a cuentas fraudulentas.',
+    risks: ['Error en CLABE', 'Factura apócrifa', 'Pagos mal direccionados'],
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
   },
   {
-    icon: UserCog,
-    title: 'Personal Administrativo',
-    subtitle: 'Roles administrativos y de oficina',
-    desc: 'El personal administrativo maneja datos sensibles y transacciones financieras, convirtiéndose en objetivos de alto valor. Sentinel actúa como un asesor de seguridad con IA siempre activo.',
-    risks: ['Exfiltración de datos', 'Suplantación de identidad', 'Fraude financiero'],
+    icon: Laptop,
+    title: 'Director Financiero PYME',
+    subtitle: 'Toma decisiones de pago y control de caja',
+    desc: 'Mide impacto de cada transferencia y necesita alertas que conecten facturas, CLABE y flujo de efectivo.',
+    risks: ['Pagos incorrectos', 'Fraude de proveedores', 'Pérdidas inesperadas'],
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
     icon: User,
-    title: 'Usuarios Generales',
-    subtitle: 'Usuarios cotidianos de correo electrónico',
-    desc: 'No se requieren conocimientos técnicos. Las explicaciones en lenguaje sencillo de Sentinel hacen que la ciberseguridad sea accesible para todos, no solo para profesionales de TI.',
-    risks: ['Robo de contraseñas', 'Phishing de cuentas', 'Robo de identidad'],
+    title: 'Contador independiente CFDI',
+    subtitle: 'Especialista en contabilidad y cumplimiento fiscal',
+    desc: 'Valida facturas y RFCs diariamente, y requiere evidencia clara para defender cada decisión frente a clientes.',
+    risks: ['CFDI apócrifo', 'RFC falso', 'Errores de conciliación'],
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
-  },
-  {
-    icon: Laptop,
-    title: 'Trabajadores Remotos',
-    subtitle: 'Equipos distribuidos',
-    desc: 'Los empleados remotos operan fuera de los firewalls corporativos y frecuentemente son atacados a través de dispositivos personales. Sentinel cierra esa brecha de seguridad.',
-    risks: ['Phishing de VPN', 'Compromiso de dispositivos', 'Robo de datos corporativos'],
-    color: 'text-orange-400',
-    bg: 'bg-orange-500/10',
-    border: 'border-orange-500/30',
   },
 ]
 

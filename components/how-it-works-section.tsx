@@ -68,11 +68,11 @@ function FlowVisualization() {
       <div className="space-y-2">
         {[
           { label: 'Ingreso del Correo', pct: 100, color: 'bg-primary', time: '0ms' },
-          { label: 'Análisis de Encabezado y Dominio', pct: 90, color: 'bg-primary', time: '15ms' },
-          { label: 'Modelo Semántico NLP', pct: 75, color: 'bg-accent', time: '65ms' },
-          { label: 'Clasificación ML', pct: 60, color: 'bg-accent', time: '120ms' },
-          { label: 'Generación Explicativa LLM', pct: 40, color: 'bg-yellow-500', time: '170ms' },
-          { label: 'Resultado del Puntaje de Riesgo', pct: 20, color: 'bg-green-500', time: '195ms' },
+          { label: 'Análisis de Encabezado (SPF/DKIM/DMARC)', pct: 90, color: 'bg-primary', time: '15ms' },
+          { label: 'NLP Semántico', pct: 75, color: 'bg-accent', time: '65ms' },
+          { label: 'Scoring Heurístico BEC', pct: 60, color: 'bg-accent', time: '120ms' },
+          { label: 'Enriquecimiento LLM', pct: 40, color: 'bg-yellow-500', time: '170ms' },
+          { label: 'Alerta con Explicación', pct: 20, color: 'bg-green-500', time: '195ms' },
         ].map((item) => (
           <div key={item.label} className="group">
             <div className="flex justify-between text-xs mb-1">

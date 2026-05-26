@@ -268,13 +268,13 @@ export function HeroSection() {
                 id="hero-heading"
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground text-balance leading-tight"
               >
-                Protege tu bandeja de entrada con IA
+                Detecta facturas falsas y fraude BEC antes de que cuesten.
               </h1>
             </div>
 
             {/* Subtítulo */}
             <p className="reveal text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Una app móvil que analiza correos sospechosos y te muestra por qué son peligrosos
+              Para despachos contables y PYMES en México. Valida facturas CFDI, detecta cambios de CLABE y genera evidencia para CONDUSEF — sin necesidad de equipo IT.
             </p>
 
             {/* Botones */}
@@ -299,9 +299,9 @@ export function HeroSection() {
             {/* Micro estadísticas */}
             <div className="reveal flex flex-wrap gap-6 pt-2">
               {[
-                { value: '97%', label: 'Precisión de detección' },
-                { value: '<200ms', label: 'Tiempo de análisis' },
-                { value: '10M+', label: 'Correos analizados' },
+                { value: '6M+', label: 'fraudes/año en MX' },
+                { value: '20,000 MDP', label: 'en pérdidas' },
+                { value: '<30 seg', label: 'de detección' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-xl font-bold text-primary">{stat.value}</p>

@@ -6,40 +6,40 @@ import { AlertTriangle, Brain, TrendingUp, ShieldOff, Bot } from 'lucide-react'
 const threats = [
   {
     icon: Bot,
-    title: 'Ataques Generados por LLM',
-    desc: 'Los atacantes ahora usan modelos de lenguaje avanzados para crear correos de phishing perfectamente redactados y altamente convincentes que evaden los filtros tradicionales basados en palabras clave.',
-    stat: '4.3×',
-    statLabel: 'incremento en ataques escritos con IA',
+    title: 'CFDI Suplantado',
+    desc: 'Facturas y XML aparentan ser válidos, pero no coinciden con el SAT ni con el proveedor registrado.',
+    stat: 'CFDI',
+    statLabel: 'documentos fraudulentos detectados',
     color: 'text-red-400',
     bg: 'bg-red-500/10',
     border: 'border-red-500/30',
   },
   {
     icon: Brain,
-    title: 'Ingeniería Social Avanzada',
-    desc: 'La IA permite a los atacantes personalizar correos masivamente, imitando contactos reales, empresas y estilos de comunicación para explotar la psicología humana.',
-    stat: '91%',
-    statLabel: 'de los ataques usan ingeniería social',
+    title: 'RFC Suplantado',
+    desc: 'Remitentes imitan RFC de proveedores reales para engañar al despacho contable y legitimar pagos falsos.',
+    stat: '79%',
+    statLabel: 'envíos con RFC sospechoso',
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
   },
   {
     icon: TrendingUp,
-    title: 'Crecimiento Exponencial',
-    desc: 'Los incidentes de phishing han crecido más de un 300% en tres años, con campañas asistidas por IA dirigidas a organizaciones de todas las industrias.',
-    stat: '300%',
-    statLabel: 'de crecimiento en 3 años',
+    title: 'Fraude de Órdenes de Pago',
+    desc: 'Cambios de CLABE y órdenes apócrifas buscan desviar transferencias antes de que el contador confirme el pago.',
+    stat: 'CLABE',
+    statLabel: 'cambios de cuenta detectados',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
     icon: ShieldOff,
-    title: 'Los Filtros No Son Suficientes',
-    desc: 'Los filtros tradicionales de spam y phishing dependen de listas negras y coincidencias básicas de patrones, siendo incapaces de detectar amenazas nuevas creadas con IA y conscientes del contexto.',
+    title: 'Validación Contable Incompleta',
+    desc: 'Los controles tradicionales no cruzan CFDI, CLABE y evidencia fiscal en tiempo real para despachos y PYMES.',
     stat: '78%',
-    statLabel: 'del phishing con IA evade filtros',
+    statLabel: 'de pagos pasan sin revisión completa',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
@@ -210,14 +210,16 @@ export function ProblemSection() {
             id="problem-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            El Phishing Ha Evolucionado.{' '}
-            <span className="text-red-400">
-              Tus Defensas No.
-            </span>
+            Tu proveedor de siempre te pide cambiar la CLABE.
+            <span className="block text-red-400">¿Es real?</span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Los correos de phishing creados con IA son más realistas y pueden pasar desapercibidos para los filtros tradicionales. Los usuarios no tienen una herramienta que explique por qué un mensaje es peligroso.
+            CFDI suplantado, RFC suplantado y fraude de órdenes de pago están atacando a despachos contables y PYMES en México.
+          </p>
+
+          <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            En 2024, más de 13 millones de víctimas de fraude digital en México (El País 2025).
           </p>
         </div>
 
