@@ -219,7 +219,7 @@ export function ProblemSection() {
           </p>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            En 2024, más de 13 millones de víctimas de fraude digital en México (El País 2025).
+            En 2024, más de 6 millones de víctimas de fraude digital en México (Scitum 2024).
           </p>
         </div>
 
