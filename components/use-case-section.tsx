@@ -1,28 +1,35 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { FileText, CreditCard, ShieldCheck, BadgeCheck } from 'lucide-react'
+import {
+  Compass,
+  GraduationCap,
+  MapPin,
+  Sparkles,
+  TrendingUp,
+  CheckCircle2,
+} from 'lucide-react'
 
 const flowSteps = [
   {
-    icon: FileText,
-    title: 'Factura Recibida',
-    desc: 'Se recibe un CFDI que parece legítimo, pero el proveedor solicita un cambio súbito de CLABE.',
+    icon: Compass,
+    title: 'Historia de la estudiante',
+    desc: 'Una alumna responde una experiencia interactiva que revela sus intereses, fortalezas y estilo de aprendizaje.',
   },
   {
-    icon: CreditCard,
-    title: 'Análisis de CLABE',
-    desc: 'Sentinel compara la cuenta nueva con el historial del proveedor y detecta una desviación sospechosa.',
+    icon: MapPin,
+    title: 'Contexto real',
+    desc: 'El sistema analiza su ubicación, su entorno familiar y las universidades disponibles cerca de ella.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Validación CFDI',
-    desc: 'El sistema cruza el XML con el SAT y verifica que RFC, RFC receptor y folio coincidan correctamente.',
+    icon: Sparkles,
+    title: 'IA predictiva',
+    desc: 'Oriantate+ combina Machine Learning y datos oficiales para identificar las carreras con mayor afinidad.',
   },
   {
-    icon: BadgeCheck,
-    title: 'Evidencia para CONDUSEF',
-    desc: 'Genera un reporte formal que documenta la anomalía para soporte legal y reclamos fiscales.',
+    icon: GraduationCap,
+    title: 'Recomendación clara',
+    desc: 'Recibe una ruta concreta con carreras, universidades y razones por las que esa opción encaja mejor.',
   },
 ]
 
@@ -33,7 +40,9 @@ export function UseCaseSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
         })
       },
       { threshold: 0.1 }
@@ -49,75 +58,69 @@ export function UseCaseSection() {
     <section
       id="use-case"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative overflow-hidden py-24 lg:py-32"
       aria-labelledby="use-case-heading"
     >
       <div className="absolute inset-0 grid-bg opacity-30" />
-      <div className="absolute top-0 right-0 w-72 h-72 orb bg-accent/6" />
+      <div className="absolute top-0 right-0 h-72 w-72 orb bg-accent/6" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 orb bg-primary/6" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14 space-y-4">
-          <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-xs text-primary font-mono">
-            <BadgeCheck className="w-3 h-3" />
-            Evidencia para CONDUSEF
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 space-y-4 text-center">
+          <div className="reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1.5 font-mono text-xs text-primary">
+            <TrendingUp className="h-3 w-3" />
+            Caso de uso real
           </div>
 
           <h2
             id="use-case-heading"
-            className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
+            className="reveal text-balance text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
           >
-            Caso de uso: Factura con CLABE cambiada
+            De una duda vocacional a una decisión más clara
           </h2>
 
-          <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Un cambio de cuenta bancaría puede costar millones. Sentinel detecta discrepancias de CLABE, valida CFDI y genera evidencia que respalda tu rechazo o reporte.
+          <p className="reveal mx-auto max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Cuando una estudiante necesita orientación, Oriantate+ convierte preguntas vagas en recomendaciones concretas, realistas y alineadas con su contexto.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
-          <div className="reveal glass-card rounded-3xl p-8 border border-border/40 bg-secondary/50 shadow-xl" style={{ transitionDelay: '0.1s' }}>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-mono text-primary border border-primary/20">
-              <BadgeCheck className="w-4 h-4" />
-              Genera evidencia formal para CONDUSEF y auditoría interna
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="reveal rounded-3xl border border-border/40 bg-background/70 p-8 shadow-xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-mono text-primary">
+              <CheckCircle2 className="h-4 w-4" />
+              Flujo de orientación
             </div>
 
             <div className="space-y-6">
-              {flowSteps.map((step, i) => (
-                <div key={step.title} className="flex items-start gap-4">
-                  <div className="mt-1 rounded-2xl bg-primary/10 text-primary p-3">
-                    <step.icon className="w-5 h-5" />
+              {flowSteps.map((step, index) => (
+                <div key={step.title} className="relative flex items-start gap-4">
+                  {index < flowSteps.length - 1 && <div className="absolute left-6 top-14 h-12 w-px bg-border/50" />}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                    <step.icon className="h-5 w-5 text-primary" />
                   </div>
-
                   <div>
-                    <p className="text-sm font-semibold text-foreground mb-1">{step.title}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                    <h3 className="mb-1 text-base font-semibold text-foreground">{step.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="reveal rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/10 p-8 shadow-2xl" style={{ transitionDelay: '0.2s' }}>
-            <div className="mb-6">
-              <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Flujo real de trabajo</p>
-              <h3 className="mt-4 text-2xl font-bold text-foreground">De la alerta al rechazo seguro</h3>
-            </div>
+          <div className="reveal rounded-3xl border border-primary/20 bg-primary/10 p-8">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Resultado esperado</p>
+            <h3 className="mt-3 text-2xl font-bold text-foreground">Una elección con más confianza</h3>
 
-            <div className="space-y-5">
-              <div className="rounded-3xl bg-secondary/70 p-5 border border-border/40">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Escenario</p>
-                <p className="text-sm text-foreground leading-relaxed">Un proveedor conocido envía una factura y solicita cambiar la CLABE justo antes de pagar.</p>
-              </div>
-
-              <div className="rounded-3xl bg-secondary/70 p-5 border border-border/40">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Detección</p>
-                <p className="text-sm text-foreground leading-relaxed">Sentinel compara la nueva CLABE con el historial y valida el CFDI contra el SAT en segundos.</p>
-              </div>
-
-              <div className="rounded-3xl bg-secondary/70 p-5 border border-border/40">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Resultado</p>
-                <p className="text-sm text-foreground leading-relaxed">Alerta instantánea con explicación, rechazo recomendado y reporte exportable para CONDUSEF.</p>
-              </div>
+            <div className="mt-6 space-y-4">
+              {[
+                'Se identifica una carrera con mayor afinidad y mejores oportunidades.',
+                'La recomendación considera universidades cercanas y contexto real.',
+                'El estudiante entiende por qué la opción es adecuada para él o ella.',
+              ].map((item) => (
+                <div key={item} className="rounded-2xl border border-border/40 bg-background/70 p-4 text-sm text-foreground">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>

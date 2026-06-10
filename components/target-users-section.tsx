@@ -1,45 +1,45 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Briefcase, UserCog, Laptop, User, Users } from 'lucide-react'
+import { BookOpen, GraduationCap, Laptop, UserRound, Users } from 'lucide-react'
 
 const users = [
   {
-    icon: Briefcase,
-    title: 'Dueño de Despacho Contable',
-    subtitle: 'Responsable de la operación financiera',
-    desc: 'Necesita certeza antes de autorizar pagos y sabe que una factura falsa puede costarle la relación con su cliente.',
-    risks: ['Factura falsa', 'Cambio de CLABE', 'Responsabilidad ante clientes'],
+    icon: GraduationCap,
+    title: 'Estudiante de secundaria',
+    subtitle: 'Busca claridad sobre su futuro',
+    desc: 'Quiere entender qué carreras encajan con sus intereses, habilidades y contexto sin sentirse abrumado.',
+    risks: ['Confusión vocacional', 'Falta de información', 'Dificultad para comparar opciones'],
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
   {
-    icon: UserCog,
-    title: 'Asistente / Capturista',
-    subtitle: 'Quien procesa pagos y facturas',
-    desc: 'Trabaja con alta carga documental y busca evitar errores que provoquen pagos a cuentas fraudulentas.',
-    risks: ['Error en CLABE', 'Factura apócrifa', 'Pagos mal direccionados'],
+    icon: BookOpen,
+    title: 'Padre o madre de familia',
+    subtitle: 'Quiere apoyar una decisión importante',
+    desc: 'Necesita una orientación confiable para acompañar a su hijo o hija en la elección de su ruta académica.',
+    risks: ['Preocupación por el futuro', 'Falta de contexto', 'Decisiones poco informadas'],
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
   },
   {
     icon: Laptop,
-    title: 'Director Financiero PYME',
-    subtitle: 'Toma decisiones de pago y control de caja',
-    desc: 'Mide impacto de cada transferencia y necesita alertas que conecten facturas, CLABE y flujo de efectivo.',
-    risks: ['Pagos incorrectos', 'Fraude de proveedores', 'Pérdidas inesperadas'],
+    title: 'Joven universitario',
+    subtitle: 'Quiere reinventar su camino',
+    desc: 'Busca nuevas oportunidades, reorientación o una mejor comprensión de sus fortalezas para elegir con más seguridad.',
+    risks: ['Duda profesional', 'Cambio de carrera', 'Falta de orientación personalizada'],
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
-    icon: User,
-    title: 'Contador independiente CFDI',
-    subtitle: 'Especialista en contabilidad y cumplimiento fiscal',
-    desc: 'Valida facturas y RFCs diariamente, y requiere evidencia clara para defender cada decisión frente a clientes.',
-    risks: ['CFDI apócrifo', 'RFC falso', 'Errores de conciliación'],
+    icon: UserRound,
+    title: 'Orientador o docente',
+    subtitle: 'Acompaña procesos de decisión',
+    desc: 'Necesita una herramienta que facilite conversaciones, recomendaciones y seguimiento con mayor contexto.',
+    risks: ['Escasez de tiempo', 'Orientación poco personalizada', 'Dificultad para priorizar opciones'],
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
@@ -88,13 +88,12 @@ export function TargetUsersSection() {
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
             Diseñado para{' '}
-            <span className="neon-text">Cada Persona</span>{' '}
-            en el Mundo Digital
+            <span className="neon-text">cada persona</span>{' '}
+            que busca encontrar su camino
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Los ataques de phishing no discriminan por puesto de trabajo. Sentinel AI protege a cualquier
-            persona que use correo electrónico, desde estudiantes hasta ejecutivos.
+            Oriantate+ acompaña a estudiantes, familias y docentes en un momento clave de la vida, ofreciendo orientación más cercana, contextual y útil.
           </p>
         </div>
 
@@ -124,7 +123,7 @@ export function TargetUsersSection() {
 
               <div className="space-y-1.5">
                 <p className="text-xs text-muted-foreground uppercase tracking-wider font-mono">
-                  Amenazas Comunes
+                  Necesidades clave
                 </p>
 
                 {user.risks.map((risk) => (
@@ -132,7 +131,7 @@ export function TargetUsersSection() {
                     key={risk}
                     className={`flex items-center gap-2 text-xs ${user.color}`}
                   >
-                    <div className="w-1 h-1 rounded-full bg-current flex-shrink-0" />
+                    <div className="w-1 h-1 rounded-full bg-current shrink-0" />
                     {risk}
                   </div>
                 ))}

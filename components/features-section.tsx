@@ -2,36 +2,34 @@
 
 import { useEffect, useRef } from 'react'
 import {
-  Type,
-  GitBranch,
-  Lightbulb,
+  Brain,
   Compass,
   Globe,
   BarChart2,
   Smartphone,
   BookOpen,
   Zap,
-  ShieldCheck,
-  FileSearch,
+  Lightbulb,
   Layers,
-  Users
+  Users,
+  GraduationCap,
 } from 'lucide-react'
 
 const features = [
   {
-    icon: Type,
-    title: 'Análisis Semántico NLP',
-    desc: 'Modelos basados en transformers detectan tácticas de manipulación, urgencia artificial y patrones de ingeniería social ocultos en el texto del correo.',
-    tag: 'Principal',
+    icon: Brain,
+    title: 'Análisis Inteligente de Perfil',
+    desc: 'La inteligencia artificial analiza intereses, habilidades, aptitudes y personalidad para construir un perfil vocacional único.',
+    tag: 'IA',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
     size: 'md:col-span-2',
   },
   {
-    icon: GitBranch,
-    title: 'Motor de Detección BEC',
-    desc: 'Analiza más de 15 señales de fraude financiero en cada mensaje: dominios sospechosos, cambios de cuenta, urgencia artificial y fallas DKIM/SPF.',
+    icon: Compass,
+    title: 'Orientación Vocacional Personalizada',
+    desc: 'Genera recomendaciones de carreras basadas en la compatibilidad entre el estudiante y distintas áreas profesionales.',
     tag: 'Principal',
     color: 'text-accent',
     bg: 'bg-accent/10',
@@ -39,20 +37,20 @@ const features = [
     size: '',
   },
   {
-    icon: ShieldCheck,
-    title: 'Validación CFDI vs SAT',
-    desc: 'Compara facturas recibidas con la base del SAT para detectar CFDI apócrifos antes de autorizar pagos.',
-    tag: 'Finanzas',
+    icon: Globe,
+    title: 'Geolocalización de Universidades',
+    desc: 'Encuentra universidades e instituciones cercanas utilizando la ubicación actual del estudiante.',
+    tag: 'GPS',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
     size: '',
   },
   {
-    icon: FileSearch,
-    title: 'Comparativa de CLABE histórica',
-    desc: 'Detecta cambios de cuenta con análisis de CLABE anteriores y patrones de transferencia de proveedores.',
-    tag: 'Finanzas',
+    icon: BarChart2,
+    title: 'Compatibilidad Profesional',
+    desc: 'Calcula porcentajes de afinidad entre el perfil del usuario y distintas carreras universitarias.',
+    tag: 'Analítica',
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
@@ -60,9 +58,9 @@ const features = [
   },
   {
     icon: Users,
-    title: 'Directorio de Proveedores Verificados',
-    desc: 'Permite registrar y comparar proveedores confiables para evitar pagos a cuentas no autorizadas.',
-    tag: 'Confianza',
+    title: 'Comparación de Universidades',
+    desc: 'Permite comparar universidades, programas académicos y oportunidades educativas.',
+    tag: 'Educación',
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
@@ -70,29 +68,29 @@ const features = [
   },
   {
     icon: Layers,
-    title: 'Reportes CONDUSEF',
-    desc: 'Genera evidencia estructurada y exportable para reclamaciones formales ante CONDUSEF.',
-    tag: 'Regulatorio',
+    title: 'Factores Internos y Externos',
+    desc: 'Integra variables personales, económicas, académicas y geográficas para generar recomendaciones más precisas.',
+    tag: 'Modelo IA',
     color: 'text-red-400',
     bg: 'bg-red-500/10',
     border: 'border-red-500/30',
     size: 'md:col-span-2',
   },
   {
-    icon: Globe,
-    title: 'Validación de Remitente y Dominio',
-    desc: 'Verificación automática de DKIM, SPF y DMARC, además de detección de dominios homoglíficos y falsificados.',
-    tag: 'Seguridad',
+    icon: Lightbulb,
+    title: 'Recomendaciones Inteligentes',
+    desc: 'Sugiere rutas académicas y profesionales adaptadas al perfil de cada estudiante.',
+    tag: 'IA',
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
     size: '',
   },
   {
-    icon: BarChart2,
-    title: 'Porcentaje de Confianza de Riesgo',
-    desc: 'Más allá de un simple seguro/peligroso, Sentinel proporciona un puntaje de riesgo de 0–100 con intervalos de confianza.',
-    tag: 'Analítica',
+    icon: BookOpen,
+    title: 'Exploración de Carreras',
+    desc: 'Proporciona información detallada sobre áreas de estudio, perfiles profesionales y campo laboral.',
+    tag: 'Carreras',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
@@ -100,19 +98,19 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: 'Asistente Mobile-First',
-    desc: 'Diseñado para protección en movimiento. Ligero, rápido y totalmente optimizado para iOS y Android.',
-    tag: 'Plataforma',
+    title: 'Experiencia Mobile First',
+    desc: 'Diseñado para funcionar perfectamente en teléfonos inteligentes, permitiendo orientación en cualquier lugar.',
+    tag: 'App',
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
     border: 'border-purple-500/30',
     size: '',
   },
   {
-    icon: BookOpen,
-    title: 'Explicaciones Educativas',
-    desc: 'Los usuarios aprenden por qué un correo es peligroso, desarrollando conciencia sobre phishing a largo plazo.',
-    tag: 'Educación',
+    icon: GraduationCap,
+    title: 'Seguimiento Académico',
+    desc: 'Permite visualizar el progreso del estudiante y actualizar recomendaciones conforme evolucionan sus intereses.',
+    tag: 'Seguimiento',
     color: 'text-cyan-400',
     bg: 'bg-cyan-500/10',
     border: 'border-cyan-500/30',
@@ -127,7 +125,9 @@ export function FeaturesSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
         })
       },
       { threshold: 0.08 }
@@ -159,20 +159,23 @@ export function FeaturesSection() {
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
             <Zap className="w-3 h-3" />
-            Conjunto de Funciones
+            Funcionalidades Principales
           </div>
 
           <h2
             id="features-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Todo lo que Necesitas para{' '}
-            <span className="neon-text">Mantenerte Protegido</span>
+            Todo lo que Necesitas para
+            <span className="neon-text">
+              {' '}Descubrir tu Futuro Profesional
+            </span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Un conjunto completo de herramientas impulsadas por IA que detectan,
-            explican y educan, creado para personas reales en un mundo digital peligroso.
+            Un conjunto completo de herramientas impulsadas por inteligencia artificial
+            que ayudan a los estudiantes a descubrir carreras, universidades y oportunidades
+            alineadas con su perfil vocacional.
           </p>
         </div>
 
@@ -185,7 +188,6 @@ export function FeaturesSection() {
               style={{ transitionDelay: `${i * 0.07}s` }}
             >
               <div className="flex items-start justify-between mb-4">
-
                 <div
                   className={`w-11 h-11 rounded-xl ${feat.bg} border ${feat.border} flex items-center justify-center group-hover:scale-110 transition-transform`}
                 >
@@ -207,9 +209,8 @@ export function FeaturesSection() {
                 {feat.desc}
               </p>
 
-              {/* Hover indicator */}
               <div
-                className={`mt-4 h-0.5 w-0 group-hover:w-full ${feat.bg.replace('bg-', 'bg-').replace('/10', '')} transition-all duration-500 rounded-full opacity-60`}
+                className={`mt-4 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-full opacity-60 ${feat.bg}`}
               />
             </div>
           ))}

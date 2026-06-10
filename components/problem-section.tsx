@@ -1,163 +1,137 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { AlertTriangle, Brain, TrendingUp, ShieldOff, Bot } from 'lucide-react'
+import {
+  AlertTriangle,
+  Brain,
+  TrendingUp,
+  MapPin,
+  GraduationCap,
+} from 'lucide-react'
 
-const threats = [
+const challenges = [
   {
-    icon: Bot,
-    title: 'CFDI Suplantado',
-    desc: 'Facturas y XML aparentan ser válidos, pero no coinciden con el SAT ni con el proveedor registrado.',
-    stat: 'CFDI',
-    statLabel: 'documentos fraudulentos detectados',
+    icon: Brain,
+    title: 'Falta de Autoconocimiento',
+    desc: 'Muchos estudiantes desconocen sus aptitudes, intereses y fortalezas al elegir una carrera.',
+    stat: '40%',
+    statLabel: 'cambian de carrera',
     color: 'text-red-400',
     bg: 'bg-red-500/10',
     border: 'border-red-500/30',
   },
   {
-    icon: Brain,
-    title: 'RFC Suplantado',
-    desc: 'Remitentes imitan RFC de proveedores reales para engañar al despacho contable y legitimar pagos falsos.',
-    stat: '79%',
-    statLabel: 'envíos con RFC sospechoso',
+    icon: GraduationCap,
+    title: 'Información Limitada',
+    desc: 'Las decisiones suelen tomarse con poca información sobre carreras y universidades.',
+    stat: '25%',
+    statLabel: 'abandona estudios',
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
   },
   {
-    icon: TrendingUp,
-    title: 'Fraude de Órdenes de Pago',
-    desc: 'Cambios de CLABE y órdenes apócrifas buscan desviar transferencias antes de que el contador confirme el pago.',
-    stat: 'CLABE',
-    statLabel: 'cambios de cuenta detectados',
+    icon: MapPin,
+    title: 'Factores Externos',
+    desc: 'La ubicación, economía familiar y oportunidades laborales influyen en el futuro profesional.',
+    stat: 'GPS',
+    statLabel: 'universidades cercanas',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
-    icon: ShieldOff,
-    title: 'Validación Contable Incompleta',
-    desc: 'Los controles tradicionales no cruzan CFDI, CLABE y evidencia fiscal en tiempo real para despachos y PYMES.',
-    stat: '78%',
-    statLabel: 'de pagos pasan sin revisión completa',
+    icon: TrendingUp,
+    title: 'Decisiones sin Datos',
+    desc: 'Elegir una carrera sin orientación puede provocar frustración y pérdida de tiempo.',
+    stat: 'IA',
+    statLabel: 'recomendaciones inteligentes',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
 ]
 
-function FakeEmailCard() {
+function StudentProfilePreview() {
   return (
     <div className="glass-card rounded-2xl overflow-hidden max-w-md mx-auto lg:mx-0">
-      {/* Encabezado del correo */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border/40 bg-secondary/30">
-        <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
-        <span className="text-xs text-red-400 font-mono">AMENAZA DETECTADA</span>
+        <GraduationCap className="w-3.5 h-3.5 text-primary" />
+
+        <span className="text-xs text-primary font-mono">
+          PERFIL VOCACIONAL
+        </span>
 
         <div className="ml-auto flex items-center gap-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-          <span className="text-xs text-muted-foreground">Muestra en Vivo</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <span className="text-xs text-muted-foreground">
+            Resultado IA
+          </span>
         </div>
       </div>
 
       <div className="p-4 space-y-3">
         <div className="space-y-1">
           <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">De:</span>
+            <span className="text-xs text-muted-foreground">
+              Perfil:
+            </span>
 
-            <span className="text-xs font-mono text-red-400 bg-red-500/10 px-2 py-0.5 rounded">
-              security@app1e-id.com
+            <span className="text-xs font-medium text-primary">
+              Analítico y Creativo
             </span>
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">Asunto:</span>
+            <span className="text-xs text-muted-foreground">
+              Compatibilidad:
+            </span>
+
+            <span className="text-xs text-green-400">
+              92%
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-muted-foreground">
+              Universidades:
+            </span>
 
             <span className="text-xs text-foreground">
-              Tu Apple ID ha sido bloqueado
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">Recibido:</span>
-
-            <span className="text-xs text-muted-foreground">
-              Hace 2 minutos
+              14 encontradas
             </span>
           </div>
         </div>
 
-        <div className="bg-secondary/40 rounded-xl p-3 text-sm text-muted-foreground leading-relaxed border border-border/30">
-          <p>Estimado Cliente,</p>
-
-          <p className="mt-1">
-            Hemos detectado{' '}
-            <span className="text-orange-400 font-medium">
-              actividad inusual
-            </span>{' '}
-            en tu cuenta de Apple. Tu acceso ha sido{' '}
-            <span className="text-red-400 font-medium">
-              restringido temporalmente
-            </span>.
-          </p>
-
-          <p className="mt-1">
-            Por favor verifica tu identidad{' '}
-            <span className="text-red-400 font-medium underline cursor-pointer">
-              inmediatamente
-            </span>{' '}
-            para restaurar el acceso completo. Si no verificas dentro de{' '}
-            <span className="text-orange-400 font-medium">24 horas</span>,
-            tu cuenta será suspendida permanentemente.
+        <div className="bg-secondary/40 rounded-xl p-3 border border-border/30">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Con base en tus respuestas, tienes una alta afinidad
+            con carreras tecnológicas, análisis de datos y
+            resolución de problemas.
           </p>
         </div>
 
-        {/* Indicadores IA */}
         <div className="space-y-2">
           <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">
-            Indicadores de Detección IA
+            Carreras Recomendadas
           </p>
 
           {[
-            {
-              label: 'Dominio homoglífico (app1e ≠ apple)',
-              level: 'CRÍTICO',
-              color: 'text-red-400',
-              bg: 'bg-red-500/10',
-              border: 'border-red-500/20',
-            },
-            {
-              label: 'Inyección artificial de urgencia',
-              level: 'ALTO',
-              color: 'text-orange-400',
-              bg: 'bg-orange-500/10',
-              border: 'border-orange-500/20',
-            },
-            {
-              label: 'Lenguaje coercitivo de amenaza',
-              level: 'ALTO',
-              color: 'text-orange-400',
-              bg: 'bg-orange-500/10',
-              border: 'border-orange-500/20',
-            },
-            {
-              label: 'Falta alineación DKIM/SPF',
-              level: 'MEDIO',
-              color: 'text-yellow-400',
-              bg: 'bg-yellow-500/10',
-              border: 'border-yellow-500/20',
-            },
-          ].map((marker) => (
+            'Ingeniería en Software',
+            'Ciencia de Datos',
+            'Ingeniería en IA',
+            'Mecatrónica',
+          ].map((career) => (
             <div
-              key={marker.label}
-              className={`flex items-center justify-between px-3 py-2 rounded-lg ${marker.bg} border ${marker.border}`}
+              key={career}
+              className="flex items-center justify-between px-3 py-2 rounded-lg bg-primary/10 border border-primary/20"
             >
-              <span className="text-xs text-foreground/80">
-                {marker.label}
+              <span className="text-xs text-foreground">
+                {career}
               </span>
 
-              <span className={`text-xs font-mono font-bold ${marker.color}`}>
-                {marker.level}
+              <span className="text-xs font-bold text-primary">
+                Alta
               </span>
             </div>
           ))}
@@ -174,7 +148,9 @@ export function ProblemSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
         })
       },
       { threshold: 0.1 }
@@ -195,78 +171,80 @@ export function ProblemSection() {
       aria-labelledby="problem-heading"
     >
       <div className="absolute inset-0 grid-bg opacity-30" />
-      <div className="absolute top-0 right-0 w-96 h-96 orb bg-red-500/5" />
+      <div className="absolute top-0 right-0 w-96 h-96 orb bg-primary/5" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
-          <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-red-500/30 text-xs text-red-400 font-mono">
+
+          <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
             <AlertTriangle className="w-3 h-3" />
-            Panorama de Amenazas
+            Problema Actual
           </div>
 
           <h2
             id="problem-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Tu proveedor de siempre te pide cambiar la CLABE.
-            <span className="block text-red-400">¿Es real?</span>
+            Muchos estudiantes eligen una carrera sin conocer realmente su perfil.
+
+            <span className="block text-primary">
+              ¿Es la decisión correcta?
+            </span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            CFDI suplantado, RFC suplantado y fraude de órdenes de pago están atacando a despachos contables y PYMES en México.
+            La falta de orientación vocacional adecuada provoca cambios de carrera,
+            abandono escolar y decisiones basadas en información incompleta.
           </p>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            En 2024, más de 6 millones de víctimas de fraude digital en México (Scitum 2024).
+            Oriantate+ combina inteligencia artificial, gamificación y geolocalización
+            para ayudar a los estudiantes a descubrir su mejor camino profesional.
           </p>
         </div>
 
-        {/* Contenido principal */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-          {/* Tarjetas */}
           <div className="grid sm:grid-cols-2 gap-4">
-            {threats.map((threat, i) => (
+            {challenges.map((item, i) => (
               <div
-                key={threat.title}
-                className="reveal glass-card rounded-2xl p-5 hover:border-border/60 transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                key={item.title}
+                className="reveal glass-card rounded-2xl p-5 hover:border-border/60 transition-all duration-300 hover:-translate-y-1 group"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div
-                  className={`w-10 h-10 rounded-xl ${threat.bg} border ${threat.border} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
+                  className={`w-10 h-10 rounded-xl ${item.bg} border ${item.border} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
                 >
-                  <threat.icon className={`w-5 h-5 ${threat.color}`} />
+                  <item.icon className={`w-5 h-5 ${item.color}`} />
                 </div>
 
                 <div className="mb-2">
-                  <span className={`text-2xl font-bold ${threat.color}`}>
-                    {threat.stat}
+                  <span className={`text-2xl font-bold ${item.color}`}>
+                    {item.stat}
                   </span>
 
                   <span className="block text-xs text-muted-foreground mt-0.5">
-                    {threat.statLabel}
+                    {item.statLabel}
                   </span>
                 </div>
 
                 <h3 className="text-sm font-semibold text-foreground mb-1">
-                  {threat.title}
+                  {item.title}
                 </h3>
 
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  {threat.desc}
+                  {item.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Visualización del correo */}
           <div
             className="reveal"
             style={{ transitionDelay: '0.3s' }}
           >
-            <FakeEmailCard />
+            <StudentProfilePreview />
           </div>
         </div>
       </div>

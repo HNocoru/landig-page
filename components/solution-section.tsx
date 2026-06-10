@@ -1,53 +1,62 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Shield, Brain, Search, BarChart3, MessageSquare, Globe, Lightbulb, CheckCircle2 } from 'lucide-react'
+import {
+  Brain,
+  MapPin,
+  BarChart3,
+  MessageSquare,
+  GraduationCap,
+  Lightbulb,
+  CheckCircle2,
+  Target,
+} from 'lucide-react'
 
 const features = [
   {
     icon: Brain,
-    title: 'Análisis Semántico',
-    desc: 'Modelos avanzados de NLP analizan la intención, el tono y los patrones lingüísticos del correo para detectar tácticas de manipulación invisibles para sistemas basados en reglas.',
+    title: 'Análisis Inteligente de Perfil',
+    desc: 'La IA analiza intereses, habilidades, personalidad y aptitudes para construir un perfil vocacional preciso.',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/30',
   },
   {
-    icon: Search,
-    title: 'Validación Contextual',
-    desc: 'Cruza el contenido del correo con el historial del remitente, reputación del dominio y contexto real de comunicación.',
+    icon: Target,
+    title: 'Factores Internos',
+    desc: 'Evalúa motivaciones, competencias, gustos y fortalezas para identificar áreas profesionales compatibles.',
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/30',
   },
   {
-    icon: BarChart3,
-    title: 'Puntuación de Riesgo de Phishing',
-    desc: 'Proporciona una puntuación de confianza de 0–100 con intervalos de confianza, ayudando a los usuarios a tomar decisiones informadas rápidamente.',
+    icon: MapPin,
+    title: 'Factores Externos',
+    desc: 'Considera ubicación geográfica, situación económica y oportunidades académicas disponibles.',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/30',
   },
   {
     icon: MessageSquare,
-    title: 'Alertas IA Explicables',
-    desc: 'Cada detección incluye una explicación en lenguaje sencillo, no solo una etiqueta, sino una razón fácil de entender.',
+    title: 'Orientación Explicable',
+    desc: 'Cada recomendación incluye una explicación clara para que el estudiante comprenda por qué una carrera es adecuada.',
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
   },
   {
-    icon: Globe,
-    title: 'Verificación de Remitente y Dominio',
-    desc: 'Verifica registros DKIM, SPF y DMARC, además de detectar dominios homoglíficos, typosquatting y URLs falsas.',
+    icon: GraduationCap,
+    title: 'Universidades Cercanas',
+    desc: 'Muestra instituciones educativas cercanas mediante geolocalización para facilitar la toma de decisiones.',
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
   },
   {
     icon: Lightbulb,
-    title: 'Recomendaciones Inteligentes',
-    desc: 'En lugar de bloquear, Sentinel guía a los usuarios con recomendaciones accionables y conscientes del contexto antes de interactuar.',
+    title: 'Recomendaciones Personalizadas',
+    desc: 'Genera rutas académicas adaptadas al perfil de cada estudiante utilizando modelos predictivos.',
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
     border: 'border-purple-500/30',
@@ -58,45 +67,47 @@ function LayerDiagram() {
   return (
     <div className="glass-card rounded-2xl p-5 space-y-3">
       <div className="flex items-center gap-2 mb-4">
-        <Shield className="w-4 h-4 text-primary" />
+        <GraduationCap className="w-4 h-4 text-primary" />
+
         <span className="text-sm font-semibold text-foreground">
-          Resumen de Arquitectura
+          Cómo Funciona Oriantate+
         </span>
       </div>
 
-      {/* Capas */}
       {[
         {
-          label: 'Tu Gmail / Cliente de Correo',
-          sublabel: 'Sin cambios — Sentinel funciona en paralelo',
+          label: 'Información del Estudiante',
+          sublabel: 'Intereses, habilidades y personalidad',
           color: 'border-border/60 bg-secondary/30',
           text: 'text-muted-foreground',
-          icon: '📧',
+          icon: '👨‍🎓',
         },
         {
-          label: 'Capa de Asistencia IA Sentinel',
-          sublabel: 'NLP · ML · LLM · IA Contextual',
+          label: 'Motor de IA',
+          sublabel: 'Machine Learning + Análisis Predictivo',
           color: 'border-primary/50 bg-primary/10',
           text: 'text-primary',
-          icon: '🛡',
+          icon: '🤖',
         },
         {
-          label: 'Puntuación de Riesgo + Explicación',
-          sublabel: 'Salida explicable y fácil de entender',
+          label: 'Evaluación Integral',
+          sublabel: 'Factores internos y externos',
           color: 'border-accent/50 bg-accent/10',
           text: 'text-accent',
           icon: '📊',
         },
         {
-          label: 'Decisión y Acción del Usuario',
-          sublabel: 'Empoderado, no reemplazado',
+          label: 'Recomendación Personalizada',
+          sublabel: 'Carreras y universidades compatibles',
           color: 'border-green-500/50 bg-green-500/10',
           text: 'text-green-400',
-          icon: '✅',
+          icon: '🎯',
         },
       ].map((layer, i) => (
         <div key={layer.label} className="relative">
-          <div className={`border ${layer.color} rounded-xl px-4 py-3 flex items-center gap-3`}>
+          <div
+            className={`border ${layer.color} rounded-xl px-4 py-3 flex items-center gap-3`}
+          >
             <span className="text-lg">{layer.icon}</span>
 
             <div className="flex-1 min-w-0">
@@ -120,10 +131,9 @@ function LayerDiagram() {
         </div>
       ))}
 
-      {/* Beneficio principal */}
       <div className="mt-4 p-3 rounded-xl bg-primary/5 border border-primary/20">
         <p className="text-xs text-primary font-mono text-center">
-          Sentinel nunca reemplaza Gmail — agrega una capa inteligente de análisis
+          Oriantate+ ayuda a descubrir la mejor opción académica basada en datos reales
         </p>
       </div>
     </div>
@@ -137,7 +147,9 @@ export function SolutionSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
         })
       },
       { threshold: 0.1 }
@@ -162,10 +174,9 @@ export function SolutionSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/30 text-xs text-primary font-mono">
-            <Shield className="w-3 h-3" />
+            <GraduationCap className="w-3 h-3" />
             La Solución
           </div>
 
@@ -173,26 +184,27 @@ export function SolutionSection() {
             id="solution-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Una{' '}
-            <span className="neon-text">Capa de Asistencia</span>{' '}
-            Inteligente para tu Bandeja de Entrada
+            Una plataforma inteligente para
+            <span className="neon-text">
+              {' '}descubrir tu futuro profesional
+            </span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Sentinel AI es un cliente de correo inteligente diseñado para detectar
-            phishing, fraude y amenazas antes de que interactúes con cualquier mensaje.
+            Oriantate+ combina inteligencia artificial,
+            factores internos, factores externos y
+            geolocalización para recomendar carreras
+            y universidades compatibles con cada estudiante.
           </p>
         </div>
 
-        {/* Layout */}
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
 
-          {/* Tarjetas */}
           <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
             {features.map((feat, i) => (
               <div
                 key={feat.title}
-                className="reveal glass-card rounded-2xl p-5 hover:border-border/60 transition-all duration-300 hover:-translate-y-1 group cursor-default"
+                className="reveal glass-card rounded-2xl p-5 hover:border-border/60 transition-all duration-300 hover:-translate-y-1 group"
                 style={{ transitionDelay: `${i * 0.08}s` }}
               >
                 <div
@@ -212,7 +224,6 @@ export function SolutionSection() {
             ))}
           </div>
 
-          {/* Diagrama */}
           <div
             className="lg:col-span-2 reveal"
             style={{ transitionDelay: '0.3s' }}

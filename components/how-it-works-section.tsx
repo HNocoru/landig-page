@@ -1,15 +1,20 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Mail, Cpu, BarChart3, Shield } from 'lucide-react'
+import {
+  GraduationCap,
+  Brain,
+  BarChart3,
+  MapPin,
+} from 'lucide-react'
 
 const steps = [
   {
     step: '01',
-    icon: Mail,
-    title: 'Correo Recibido',
-    desc: 'El usuario recibe un correo sospechoso o inusual. Sentinel AI se activa automáticamente cuando el correo se abre en la app.',
-    detail: 'Cero fricción — no requiere acción manual',
+    icon: GraduationCap,
+    title: 'Registro del Estudiante',
+    desc: 'El estudiante crea su perfil y proporciona información básica para comenzar el proceso de orientación vocacional.',
+    detail: 'Inicio rápido y sencillo',
     color: 'text-primary',
     bg: 'bg-primary/10',
     border: 'border-primary/40',
@@ -17,10 +22,10 @@ const steps = [
   },
   {
     step: '02',
-    icon: Cpu,
-    title: 'La IA Analiza el Correo',
-    desc: 'Los modelos NLP y ML analizan el correo completo: semántica, tono, metadatos del remitente, URLs, encabezados y patrones de manipulación lingüística.',
-    detail: 'Análisis multicapa en menos de 200ms',
+    icon: Brain,
+    title: 'Evaluación Inteligente',
+    desc: 'La IA analiza intereses, habilidades, personalidad y aptitudes mediante cuestionarios interactivos.',
+    detail: 'Análisis personalizado',
     color: 'text-accent',
     bg: 'bg-accent/10',
     border: 'border-accent/40',
@@ -29,9 +34,9 @@ const steps = [
   {
     step: '03',
     icon: BarChart3,
-    title: 'Se Genera un Puntaje de Riesgo',
-    desc: 'Se calcula un puntaje de riesgo de phishing (0–100) con intervalos de confianza. La IA genera una explicación clara de cada hallazgo.',
-    detail: '94%+ de precisión en amenazas nuevas',
+    title: 'Procesamiento Predictivo',
+    desc: 'El sistema combina factores internos y externos para calcular la compatibilidad con distintas carreras.',
+    detail: 'Resultados basados en datos',
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
     border: 'border-yellow-500/40',
@@ -39,10 +44,10 @@ const steps = [
   },
   {
     step: '04',
-    icon: Shield,
-    title: 'El Usuario Recibe Guía',
-    desc: 'Antes de que el usuario haga clic en algo, Sentinel entrega recomendaciones accionables: reportar, ignorar o verificar remitente.',
-    detail: 'Educa mientras protege',
+    icon: MapPin,
+    title: 'Recomendaciones Personalizadas',
+    desc: 'Se muestran carreras, universidades cercanas y opciones educativas alineadas con el perfil del estudiante.',
+    detail: 'Orientación para tu futuro',
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/40',
@@ -54,40 +59,59 @@ function FlowVisualization() {
   return (
     <div className="glass-card rounded-2xl p-5">
       <div className="flex items-center gap-2 mb-4">
-        <Cpu className="w-4 h-4 text-primary" />
+        <Brain className="w-4 h-4 text-primary" />
 
         <span className="text-sm font-semibold text-foreground">
-          Flujo de Análisis
+          Flujo de Orientación
         </span>
 
         <span className="ml-auto text-xs text-muted-foreground font-mono">
-          &lt;200ms
+          IA + Datos
         </span>
       </div>
 
       <div className="space-y-2">
         {[
-          { label: 'Ingreso del Correo', pct: 100, color: 'bg-primary', time: '0ms' },
-          { label: 'Análisis de Encabezado (SPF/DKIM/DMARC)', pct: 90, color: 'bg-primary', time: '15ms' },
-          { label: 'NLP Semántico', pct: 75, color: 'bg-accent', time: '65ms' },
-          { label: 'Scoring Heurístico BEC', pct: 60, color: 'bg-accent', time: '120ms' },
-          { label: 'Enriquecimiento LLM', pct: 40, color: 'bg-yellow-500', time: '170ms' },
-          { label: 'Alerta con Explicación', pct: 20, color: 'bg-green-500', time: '195ms' },
+          {
+            label: 'Registro del Estudiante',
+            pct: 100,
+            color: 'bg-primary',
+          },
+          {
+            label: 'Evaluación de Intereses',
+            pct: 80,
+            color: 'bg-primary',
+          },
+          {
+            label: 'Análisis de Aptitudes',
+            pct: 60,
+            color: 'bg-accent',
+          },
+          {
+            label: 'Procesamiento Predictivo',
+            pct: 40,
+            color: 'bg-yellow-500',
+          },
+          {
+            label: 'Generación de Recomendaciones',
+            pct: 20,
+            color: 'bg-green-500',
+          },
         ].map((item) => (
-          <div key={item.label} className="group">
+          <div key={item.label}>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="text-muted-foreground">
                 {item.label}
               </span>
 
               <span className="text-muted-foreground font-mono">
-                {item.time}
+                Completado
               </span>
             </div>
 
             <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
               <div
-                className={`h-full rounded-full ${item.color} opacity-70`}
+                className={`h-full rounded-full ${item.color}`}
                 style={{ width: `${100 - item.pct + 20}%` }}
               />
             </div>
@@ -97,11 +121,11 @@ function FlowVisualization() {
 
       <div className="mt-4 pt-4 border-t border-border/40 flex items-center justify-between">
         <span className="text-xs text-muted-foreground">
-          Latencia total del proceso
+          Resultado final
         </span>
 
-        <span className="text-sm font-bold text-green-400 font-mono">
-          ~195ms
+        <span className="text-sm font-bold text-green-400">
+          Perfil generado
         </span>
       </div>
     </div>
@@ -115,7 +139,9 @@ export function HowItWorksSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
         })
       },
       { threshold: 0.08 }
@@ -141,10 +167,9 @@ export function HowItWorksSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Encabezado */}
         <div className="text-center mb-16 space-y-4">
           <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-accent/30 text-xs text-accent font-mono">
-            <Cpu className="w-3 h-3" />
+            <Brain className="w-3 h-3" />
             Cómo Funciona
           </div>
 
@@ -152,18 +177,20 @@ export function HowItWorksSection() {
             id="how-heading"
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
-            Cuatro Pasos hacia{' '}
-            <span className="neon-text">Claridad ante Amenazas</span>
+            Cuatro Pasos para
+            <span className="neon-text">
+              {' '}Descubrir tu Futuro Profesional
+            </span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Desde la bandeja de entrada hasta el análisis en milisegundos.
-            El flujo de Sentinel funciona transparentemente en segundo plano,
-            fortaleciendo cada decisión.
+            Oriantate+ utiliza inteligencia artificial,
+            análisis predictivo y geolocalización para
+            identificar las carreras y universidades más
+            compatibles con cada estudiante.
           </p>
         </div>
 
-        {/* Timeline */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {steps.map((step, i) => (
             <div
@@ -171,7 +198,6 @@ export function HowItWorksSection() {
               className="reveal relative group"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              {/* Línea conectora */}
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[calc(100%+0.75rem)] w-6 h-0.5 bg-gradient-to-r from-border to-transparent z-10" />
               )}
@@ -179,7 +205,6 @@ export function HowItWorksSection() {
               <div
                 className={`glass-card rounded-2xl p-5 h-full hover:border-border/60 transition-all duration-300 hover:-translate-y-1 shadow-xl ${step.glowColor}`}
               >
-                {/* Número */}
                 <div className="flex items-start justify-between mb-4">
                   <div
                     className={`w-12 h-12 rounded-xl ${step.bg} border ${step.border} flex items-center justify-center group-hover:scale-110 transition-transform`}
@@ -187,7 +212,9 @@ export function HowItWorksSection() {
                     <step.icon className={`w-5 h-5 ${step.color}`} />
                   </div>
 
-                  <span className={`text-3xl font-black ${step.color} opacity-30 font-mono`}>
+                  <span
+                    className={`text-3xl font-black ${step.color} opacity-30 font-mono`}
+                  >
                     {step.step}
                   </span>
                 </div>
@@ -200,7 +227,6 @@ export function HowItWorksSection() {
                   {step.desc}
                 </p>
 
-                {/* Badge */}
                 <div
                   className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs ${step.bg} border ${step.border} ${step.color}`}
                 >
@@ -212,7 +238,6 @@ export function HowItWorksSection() {
           ))}
         </div>
 
-        {/* Visualización */}
         <div
           className="reveal max-w-xl mx-auto"
           style={{ transitionDelay: '0.4s' }}

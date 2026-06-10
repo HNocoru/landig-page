@@ -1,14 +1,14 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Layers, Cpu, Brain, Network, Search, Lightbulb, Code } from 'lucide-react'
+import { Brain, Code, Cpu, Layers, Lightbulb, MapPin, Search } from 'lucide-react'
 
 const technologies = [
   {
     icon: Brain,
     name: 'NLP',
     fullName: 'Procesamiento de Lenguaje Natural',
-    desc: 'Las arquitecturas Transformer analizan la semántica de los correos, extraen entidades, detectan sentimientos e identifican patrones de manipulación en lenguaje natural.',
+    desc: 'Las arquitecturas Transformer interpretan historias, intereses y metas expresadas por los estudiantes para detectar patrones de afinidad vocacional.',
     tags: ['BERT', 'Transformers', 'Tokenization', 'Embeddings'],
     color: 'text-primary',
     bg: 'bg-primary/10',
@@ -19,7 +19,7 @@ const technologies = [
     icon: Cpu,
     name: 'ML',
     fullName: 'Aprendizaje Automático',
-    desc: 'Clasificadores de conjunto entrenados con millones de muestras de phishing etiquetadas proporcionan una clasificación de amenazas robusta y de alta precisión.',
+    desc: 'Modelos predictivos entrenados con perfiles de estudiantes y resultados reales estiman cuál carrera tiene mayor compatibilidad.',
     tags: ['Random Forest', 'XGBoost', 'SVM'],
     color: 'text-accent',
     bg: 'bg-accent/10',
@@ -27,10 +27,10 @@ const technologies = [
     size: '',
   },
   {
-    icon: Network,
+    icon: Search,
     name: 'LLM',
     fullName: 'Modelos de Lenguaje de Gran Escala',
-    desc: 'Los modelos fundacionales generan explicaciones coherentes y contextuales para cada detección, haciendo que las decisiones de la IA sean transparentes y comprensibles.',
+    desc: 'Los modelos generativos traducen perfiles complejos en explicaciones claras, recomendaciones sencillas y rutas de acción comprensibles.',
     tags: ['GPT-4o', 'Llama 3', 'RAG'],
     color: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
@@ -38,11 +38,11 @@ const technologies = [
     size: '',
   },
   {
-    icon: Search,
-    name: 'Embeddings Semánticos',
-    fullName: 'Vectores Embeddings',
-    desc: 'El contenido de los correos se codifica en vectores semánticos de alta dimensión, permitiendo búsquedas de similitud contra plantillas de phishing conocidas.',
-    tags: ['Vector DB', 'Cosine Similarity', 'FAISS'],
+    icon: MapPin,
+    name: 'Geolocalización',
+    fullName: 'Contexto regional y educativo',
+    desc: 'La app aprovecha la ubicación del estudiante para mostrar universidades reales, opciones cercanas y oportunidades más alineadas con su entorno.',
+    tags: ['GPS', 'Contexto', 'Universidades', 'Región'],
     color: 'text-green-400',
     bg: 'bg-green-500/10',
     border: 'border-green-500/30',
@@ -50,10 +50,10 @@ const technologies = [
   },
   {
     icon: Layers,
-    name: 'Análisis Contextual',
-    fullName: 'Motor Contextual Multicapa',
-    desc: 'Combina historial del remitente, antigüedad del dominio, análisis de enlaces y contexto del hilo de correo para una evaluación integral de amenazas más allá del texto.',
-    tags: ['DNS Lookup', 'WHOIS', 'Link Graph'],
+    name: 'Datos SEP',
+    fullName: 'Motor contextual multicapa',
+    desc: 'Combina información educativa, trayectoria previa y contexto personal para evaluar no solo intereses, sino también viabilidad y pertinencia.',
+    tags: ['SEP', 'Trayectoria', 'Contexto', 'Compatibilidad'],
     color: 'text-orange-400',
     bg: 'bg-orange-500/10',
     border: 'border-orange-500/30',
@@ -62,8 +62,8 @@ const technologies = [
   {
     icon: Lightbulb,
     name: 'IA Explicable',
-    fullName: 'XAI — Capa de Interpretabilidad',
-    desc: 'Los valores SHAP y las visualizaciones de atención muestran las señales más influyentes detrás de cada puntuación de riesgo, garantizando transparencia y confianza.',
+    fullName: 'XAI — Transparencia en la recomendación',
+    desc: 'Los resultados muestran por qué una opción encaja mejor, construyendo confianza en cada orientación y facilitando la toma de decisiones.',
     tags: ['SHAP', 'LIME', 'Attention Maps'],
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
@@ -114,12 +114,11 @@ export function TechStackSection() {
             className="reveal text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
           >
             Construido con{' '}
-            <span className="neon-text">IA de Última Generación</span>
+            <span className="neon-text">IA de última generación</span>
           </h2>
 
           <p className="reveal text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Sentinel AI combina seis disciplinas de inteligencia artificial en un pipeline
-            unificado de detección de amenazas, donde cada capa refuerza a las demás.
+            Oriantate+ combina seis capas de análisis — lenguaje, aprendizaje automático, contexto geográfico, datos educativos y explicabilidad — para ofrecer orientación más precisa y humana.
           </p>
         </div>
 
