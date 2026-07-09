@@ -1,39 +1,40 @@
-import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-})
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-plus-jakarta-sans",
+});
 
 export const metadata: Metadata = {
-  title: 'Sentinel AI — AI-Powered Phishing Detection',
+  title: "Oriéntate+ | Orientación vocacional acompañada de principio a fin",
   description:
-    'An intelligent mobile assistant that analyzes suspicious emails using NLP, Machine Learning, and contextual AI to protect against phishing and social engineering threats.',
-  keywords: ['phishing detection', 'AI security', 'email security', 'NLP', 'cybersecurity'],
-  openGraph: {
-    title: 'Sentinel AI — AI-Powered Phishing Detection',
-    description:
-      'Intelligent mobile assistant for email phishing detection using advanced NLP and Machine Learning.',
-    type: 'website',
-  },
-  themeColor: '#0a0f1e',
-}
+    "Oriéntate+ es la plataforma que le da al orientador de tu preparatoria las herramientas para diagnosticar, dar seguimiento y acompañar a cada alumno de último grado en su decisión de carrera, con juegos, chatbot con IA y Machine Learning.",
+  keywords: [
+    "orientación vocacional",
+    "preparatoria",
+    "carrera universitaria",
+    "chatbot vocacional",
+    "Chiapas",
+  ],
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="es" className="scroll-smooth">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${plusJakartaSans.variable} antialiased bg-background text-on-surface`}>
+        {children}
+      </body>
     </html>
-  )
+  );
 }
