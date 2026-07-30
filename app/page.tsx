@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -26,28 +27,28 @@ export default function Home() {
                 grado en su decisión de carrera.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <Link
-                  href="/registro"
-                  className="bg-primary hover:bg-primary-container text-on-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2"
-                >
+                <Link href="/registro" className="bg-primary hover:bg-primary-container text-on-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2">
                   Registrar mi institución
                   <span className="material-symbols-outlined">arrow_forward</span>
                 </Link>
-                
+
+                <a
                   href="#how-it-works"
                   className="bg-surface-container-lowest/80 backdrop-blur-sm hover:bg-surface-container-lowest text-primary font-semibold px-8 py-4 rounded-full border border-primary/10 hover:border-primary/30 transition-all flex justify-center items-center gap-2"
-                <a>
+                >
                   Ver cómo funciona
                 </a>
               </div>
             </div>
 
-            <div className="relative w-full aspect-square flex justify-center items-center">
-              <div className="w-full h-full rounded-[40px] bg-gradient-to-br from-primary-fixed to-secondary-fixed/60 shadow-2xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary text-[120px] opacity-40">
-                  explore
-                </span>
-              </div>
+            <div className="relative w-full aspect-[4/3] lg:aspect-square flex justify-center items-center">
+              <Image
+                src="/img1.webp"
+                alt="Oriéntate+ interfaz de la app"
+                fill
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
               <div className="absolute -left-4 top-1/4 bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl shadow-xl p-4 flex items-center gap-4 border border-white/60">
                 <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
                   <span className="material-symbols-outlined">check_circle</span>
@@ -122,6 +123,8 @@ export default function Home() {
                 title="Chatbot vocacional + NLP"
                 description="El alumno conversa en lenguaje natural sobre sus dudas, miedos e intereses. El motor de NLP interpreta esas respuestas y las convierte en variables de su perfil."
                 linkColor="text-primary"
+                imageSrc="/img_chatbot.webp"
+                imageAlt="Chatbot vocacional con IA"
               />
               <FeatureCard
                 icon="sports_esports"
@@ -129,6 +132,8 @@ export default function Home() {
                 title="Minijuegos vocacionales"
                 description="Descubre tus pasiones mientras juegas. Retos interactivos diseñados para identificar habilidades ocultas y áreas de interés."
                 linkColor="text-tertiary"
+                imageSrc="/img_minigames.webp"
+                imageAlt="Minijuegos vocacionales"
               />
               <FeatureCard
                 icon="insights"
@@ -137,7 +142,10 @@ export default function Home() {
                 description="Cruza los datos de los juegos, el chatbot y el contexto del alumno para calcular un puntaje de compatibilidad por carrera."
                 linkColor="text-primary"
               />
-              <div className="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/10 shadow-lg flex flex-col">
+              <div className="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/10 shadow-lg flex flex-col overflow-hidden">
+                <div className="mb-8 w-full aspect-video rounded-2xl overflow-hidden relative bg-secondary-container/20">
+                  <Image src="/img_university.webp" alt="Explorador de universidades" fill className="object-cover" />
+                </div>
                 <div className="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-[28px]">account_balance</span>
                 </div>
@@ -313,15 +321,24 @@ function FeatureCard({
   title,
   description,
   linkColor,
+  imageSrc,
+  imageAlt,
 }: {
   icon: string;
   iconBg: string;
   title: string;
   description: string;
   linkColor: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }) {
   return (
-    <div className="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col">
+    <div className="bg-surface-container-lowest rounded-3xl p-8 border border-outline-variant/10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col overflow-hidden">
+      {imageSrc && (
+        <div className="mb-8 w-full aspect-video rounded-2xl overflow-hidden relative bg-primary-fixed/20">
+          <Image src={imageSrc} alt={imageAlt ?? title} fill className="object-cover" />
+        </div>
+      )}
       <div className={`w-14 h-14 rounded-full ${iconBg} flex items-center justify-center mb-6`}>
         <span className="material-symbols-outlined text-[28px]">{icon}</span>
       </div>
